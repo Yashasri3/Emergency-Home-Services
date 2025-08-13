@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeHelp - Emergency Home Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #4a5568;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+
+        .emergency-section {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .emergency-btn {
+            background: #fff;
+            color: #ff6b6b;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .emergency-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .service-description {
+            color: #718096;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .service-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .location-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .location-header h3 {
+            font-size: 1.8rem;
+            color: #4a5568;
+        }
+
+        .location-btn {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .location-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .technicians-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .technician-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .technician-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .technician-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .technician-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .technician-info h4 {
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .rating {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .speciality {
+            background: #e6fffa;
+            color: #00b894;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .availability {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .distance {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .request-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .request-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        .features-section, .how-it-works, .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .features-section h3, .how-it-works h3, .contact-section h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #4a5568;
+        }
+
+        .features-grid, .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item, .step-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon, .step-number {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .feature-title, .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .feature-desc, .step-desc {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .contact-details {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .filter-group select {
+            padding: 8px 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid, .technicians-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏠 HomeHelp</h1>
+            <p>Emergency Home Services for Busy Professionals & Families</p>
+        </header>
+
+        <!-- Emergency Section -->
+        <section class="emergency-section">
+            <h2>🚨 Need Emergency Service?</h2>
+            <p>Don't worry! Our verified technicians are available 24/7 to handle your home emergencies. Click below for immediate assistance.</p>
+            <button class="emergency-btn" onclick="openEmergencyModal()">🆘 Emergency Help Now</button>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="plumbing">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">Plumbing Services</h3>
+                    <p class="service-description">Expert plumbers for pipe repairs, leak fixes, toilet installations, and all plumbing emergencies.</p>
+                    <button class="service-btn" onclick="selectService('plumbing')">Book Plumber</button>
+                </div>
+
+                <div class="service-card" data-service="electrical">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">Electrical Work</h3>
+                    <p class="service-description">Licensed electricians for wiring, switch repairs, outlet installations, and electrical troubleshooting.</p>
+                    <button class="service-btn" onclick="selectService('electrical')">Book Electrician</button>
+                </div>
+
+                <div class="service-card" data-service="ac">
+                    <div class="service-icon">❄️</div>
+                    <h3 class="service-title">AC Repair & Service</h3>
+                    <p class="service-description">Professional AC technicians for installation, repair, maintenance, and cooling solutions.</p>
+                    <button class="service-btn" onclick="selectService('ac')">Book AC Technician</button>
+                </div>
+
+                <div class="service-card" data-service="gas">
+                    <div class="service-icon">🔥</div>
+                    <h3 class="service-title">Gas Line Services</h3>
+                    <p class="service-description">Certified gas technicians for gas line repairs, appliance connections, and safety inspections.</p>
+                    <button class="service-btn" onclick="selectService('gas')">Book Gas Technician</button>
+                </div>
+
+                <div class="service-card" data-service="cleaning">
+                    <div class="service-icon">🧹</div>
+                    <h3 class="service-title">Cleaning Services</h3>
+                    <p class="service-description">Professional cleaning teams for deep cleaning, regular maintenance, and post-renovation cleanup.</p>
+                    <button class="service-btn" onclick="selectService('cleaning')">Book Cleaning</button>
+                </div>
+
+                <div class="service-card" data-service="appliance">
+                    <div class="service-icon">🔨</div>
+                    <h3 class="service-title">Appliance Repair</h3>
+                    <p class="service-description">Expert repair services for washing machines, refrigerators, microwaves, and other home appliances.</p>
+                    <button class="service-btn" onclick="selectService('appliance')">Book Repair</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Technicians Section -->
+        <section class="location-section">
+            <div class="location-header">
+                <h3>Available Technicians Near You</h3>
+                <button class="location-btn" onclick="findNearbyTechnicians()">📍 Find By Location</button>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label>Filter by Service:</label>
+                    <select id="serviceFilter" onchange="filterTechnicians()">
+                        <option value="all">All Services</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="ac">AC Repair</option>
+                        <option value="gas">Gas Services</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="appliance">Appliance Repair</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Sort by:</label>
+                    <select id="sortBy" onchange="sortTechnicians()">
+                        <option value="distance">Distance</option>
+                        <option value="rating">Rating</option>
+                        <option value="availability">Availability</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Show:</label>
+                    <select id="availabilityFilter" onchange="filterTechnicians()">
+                        <option value="all">All Technicians</option>
+                        <option value="available">Available Now</option>
+                        <option value="soon">Available Soon</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="technicians-grid" id="techniciansGrid">
+                <!-- Technician cards will be dynamically generated here -->
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h3>Why Choose HomeHelp?</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h4 class="feature-title">24/7 Emergency Service</h4>
+                    <p class="feature-desc">Round-the-clock availability for all your urgent home repair needs</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h4 class="feature-title">Verified Professionals</h4>
+                    <p class="feature-desc">All technicians are background-checked and certified experts</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💳</div>
+                    <h4 class="feature-title">Secure Payments</h4>
+                    <p class="feature-desc">Pay advance for confirmation with instant receipt download</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h4 class="feature-title">Rated & Reviewed</h4>
+                    <p class="feature-desc">Choose technicians based on genuine customer ratings and reviews</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <h3>How It Works</h3>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Select Service</h4>
+                    <p class="step-desc">Choose the type of service you need from our categories</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Pick Technician</h4>
+                    <p class="step-desc">Select a technician based on ratings, reviews, and location</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Pay & Confirm</h4>
+                    <p class="step-desc">Pay advance amount and get instant confirmation with receipt</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">Get Service</h4>
+                    <p class="step-desc">Technician arrives at your location and solves your problem</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h3>Need Help? Contact Us</h3>
+            <p>Our customer support team is available 24/7 to assist you</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h4 class="contact-title">Call Us</h4>
+                    <p class="contact-details">+91 9876543210<br>Toll-Free: 1800-123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h4 class="contact-title">Email Us</h4>
+                    <p class="contact-details">support@homehelp.com<br>emergency@homehelp.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <h4 class="contact-title">Live Chat</h4>
+                    <p class="contact-details">Available 24/7<br>Instant responses</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div id="emergencyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('emergencyModal')">&times;</span>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px;">🚨 Emergency Service Request</h2>
+            <form id="emergencyForm">
+                <div class="form-group">
+                    <label for="emergencyName">Your Name *</label>
+                    <input type="text" id="emergencyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyPhone">Phone Number *</label>
+                    <input type="tel" id="emergencyPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyAddress">Address *</label>
+                    <textarea id="emergencyAddress" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyType">Emergency Type *</label>
+                    <select id="emergencyType" required>
+                        <option value="">Select Emergency Type</option>
+                        <option value="water-leak">Water Leak</option>
+                        <option value="power-outage">Power Outage</option>
+                        <option value="gas-leak">Gas Leak</option>
+                        <option value="ac-breakdown">AC Breakdown</option>
+                        <option value="blocked-drain">Blocked Drain</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="emergencyDescription">Describe the Problem</label>
+                    <textarea id="emergencyDescription" rows="3" placeholder="Please describe your emergency in detail..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">🚨 Request Emergency Service</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Booking Modal -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('serviceModal')">&times;</span>
+            <h2 id="serviceModalTitle" style="color: #667eea; margin-bottom: 20px;">Book Service</h2>
+            <form id="serviceForm">
+                <div class="form-group">
+                    <label for="serviceName">Your Name *</label>
+                    <input type="text" id="serviceName" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicePhone">Phone Number *</label>
+                    <input type="tel" id="servicePhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceAddress">Address *</label>
+                    <textarea id="serviceAddress" rows="2" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDate">Preferred Date *</label>
+                    <input type="date" id="serviceDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceTime">Preferred Time *</label>
+                    <select id="serviceTime" required>
+                        <option value="">Select Time Slot</option>
+                        <option value="09:00-12:00">9:00 AM - 12:00 PM</option>
+                        <option value="12:00-15:00">12:00 PM - 3:00 PM</option>
+                        <option value="15:00-18:00">3:00 PM - 6:00 PM</option>
+                        <option value="18:00-21:00">6:00 PM - 9:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Service Description</label>
+                    <textarea id="serviceDescription" rows="3" placeholder="Please describe what you need help with..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">📅 Book Service</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Technicians data
+        const techniciansData = [
+            {
+                id: 1,
+                name: "Raj Kumar",
+                avatar: "RK",
+                speciality: "Master Plumber",
+                services: ["plumbing"],
+                rating: 4.9,
+                reviews: 234,
+                availability: "available",
+                distance: 2.1,
+                arrivalTime: 25
+            },
+            {
+                id: 2,
+                name: "Amit Singh",
+                avatar: "AS",
+                speciality: "Licensed Electrician",
+                services: ["electrical"],
+                rating: 4.8,
+                reviews: 189,
+                availability: "available",
+                distance: 1.8,
+                arrivalTime: 20
+            },
+            {
+                id: 3,
+                name: "Vijay Patel",
+                avatar: "VP",
+                speciality: "AC Expert",
+                services: ["ac"],
+                rating: 4.7,
+                reviews: 156,
+                availability: "soon",
+                distance: 3.2,
+                arrivalTime: 45
+            },
+            {
+                id: 4,
+                name: "Mohan Gupta",
+                avatar: "MG",
+                speciality: "Gas Line Specialist",
+                services: ["gas"],
+                rating: 4.9,
+                reviews: 278,
+                availability: "available",
+                distance: 2.7,
+                arrivalTime: 30
+            },
+            {
+                id: 5,
+                name: "Suresh Kumar",
+                avatar: "SK",
+                speciality: "Appliance Repair",
+                services: ["appliance"],
+                rating: 4.6,
+                reviews: 145,
+                availability: "available",
+                distance: 1.5,
+                arrivalTime: 15
+            },
+            {
+                id: 6,
+                name: "Deepak Prasad",
+                avatar: "DP",
+                speciality: "Multi-Service Tech",
+                services: ["plumbing", "electrical", "appliance"],
+                rating: 4.8,
+                reviews: 203,
+                availability: "later",
+                distance: 4.1,
+                arrivalTime: 60
+            },
+            {
+                id: 7,
+                name: "Priya Sharma",
+                avatar: "PS",
+                speciality: "Cleaning Specialist",
+                services: ["cleaning"],
+                rating: 4.9,
+                reviews: 312,
+                availability: "available",
+                distance: 2.3,
+                arrivalTime: 28
+            },
+            {
+                id: 8,
+                name: "Ramesh Yadav",
+                avatar: "RY",
+                speciality: "Senior Electrician",
+                services: ["electrical"],
+                rating: 4.7,
+                reviews: 198,
+                availability: "soon",
+                distance: 3.8,
+                arrivalTime: 50
+            }
+        ];
+
+        let filteredTechnicians = [...techniciansData];
+        let selectedService = null;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTechnicians();
+            setMinDate();
+            updateAvailabilityStatus();
+            // Update availability every 30 seconds
+            setInterval(updateAvailabilityStatus, 30000);
+        });
+
+        // Set minimum date for service booking
+        function setMinDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('serviceDate').min = today;
+        }
+
+        // Simulate dynamic availability updates
+        function updateAvailabilityStatus() {
+            techniciansData.forEach(tech => {
+                const random = Math.random();
+                if (random < 0.1) { // 10% chance to change status
+                    const statuses = ['available', 'soon', 'later'];
+                    tech.availability = statuses[Math.floor(Math.random() * statuses.length)];
+                }
+            });
+            renderTechnicians();
+        }
+
+        // Render technicians cards
+        function renderTechnicians() {
+            const grid = document.getElementById('techniciansGrid');
+            grid.innerHTML = '';
+
+            filteredTechnicians.forEach(tech => {
+                const card = createTechnicianCard(tech);
+                grid.appendChild(card);
+            });
+        }
+
+        // Create technician card element
+        function createTechnicianCard(tech) {
+            const card = document.createElement('div');
+            card.className = 'technician-card';
+            card.dataset.services = tech.services.join(',');
+            card.dataset.availability = tech.availability;
+            card.dataset.rating = tech.rating;
+            card.dataset.distance = tech.distance;
+
+            const availabilityText = getAvailabilityText(tech.availability);
+            const availabilityIcon = getAvailabilityIcon(tech.availability);
+
+            card.innerHTML = `
+                <div class="technician-header">
+                    <div class="technician-avatar">${tech.avatar}</div>
+                    <div class="technician-info">
+                        <h4>${tech.name}</h4>
+                        <div class="rating">⭐⭐⭐⭐⭐ ${tech.rating} (${tech.reviews} reviews)</div>
+                    </div>
+                </div>
+                <div class="speciality">${tech.speciality}</div>
+                <div class="availability">${availabilityIcon} ${availabilityText}</div>
+                <div class="distance">📍 ${tech.distance} km away • Arrives in ${tech.arrivalTime} minutes</div>
+                <button class="request-btn" onclick="requestTechnician('${tech.name}', ${tech.id})">Request ${tech.name}</button>
+            `;
+
+            return card;
+        }
+
+        // Get availability display text
+        function getAvailabilityText(availability) {
+            switch(availability) {
+                case 'available': return 'Available Now';
+                case 'soon': return 'Available in 1 hour';
+                case 'later': return 'Available in 2 hours';
+                default: return 'Check Availability';
+            }
+        }
+
+        // Get availability icon
+        function getAvailabilityIcon(availability) {
+            switch(availability) {
+                case 'available': return '✅';
+                case 'soon': return '🟡';
+                case 'later': return '🟠';
+                default: return '⚫';
+            }
+        }
+
+        // Filter technicians based on selected criteria
+        function filterTechnicians() {
+            const serviceFilter = document.getElementById('serviceFilter').value;
+            const availabilityFilter = document.getElementById('availabilityFilter').value;
+
+            filteredTechnicians = techniciansData.filter(tech => {
+                const serviceMatch = serviceFilter === 'all' || tech.services.includes(serviceFilter);
+                const availabilityMatch = availabilityFilter === 'all' || 
+                    (availabilityFilter === 'available' && tech.availability === 'available') ||
+                    (availabilityFilter === 'soon' && (tech.availability === 'available' || tech.availability === 'soon'));
+                
+                return serviceMatch && availabilityMatch;
+            });
+
+            sortTechnicians();
+        }
+
+        // Sort technicians based on selected criteria
+        function sortTechnicians() {
+            const sortBy = document.getElementById('sortBy').value;
+
+            filteredTechnicians.sort((a, b) => {
+                switch(sortBy) {
+                    case 'rating':
+                        return b.rating - a.rating;
+                    case 'availability':
+                        const availabilityOrder = { 'available': 0, 'soon': 1, 'later': 2 };
+                        return availabilityOrder[a.availability] - availabilityOrder[b.availability];
+                    case 'distance':
+                    default:
+                        return a.distance - b.distance;
+                }
+            });
+
+            renderTechnicians();
+        }
+
+        // Select service and filter technicians
+        function selectService(service) {
+            selectedService = service;
+            document.getElementById('serviceFilter').value = service;
+            filterTechnicians();
+            
+            // Scroll to technicians section
+            document.querySelector('.location-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            showNotification(`Showing ${service} specialists near you`, 'success');
+        }
+
+        // Open emergency modal
+        function openEmergencyModal() {
+            document.getElementById('emergencyModal').style.display = 'block';
+        }
+
+        // Open service booking modal
+        function openServiceModal(serviceName) {
+            document.getElementById('serviceModal').style.display = 'block';
+            document.getElementById('serviceModalTitle').textContent = `Book ${serviceName} Service`;
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Find nearby technicians (simulate geolocation)
+        function findNearbyTechnicians() {
+            showNotification('Searching for technicians near your location...', 'info');
+            
+            setTimeout(() => {
+                // Simulate updating distances based on "current location"
+                techniciansData.forEach(tech => {
+                    tech.distance = +(Math.random() * 5 + 0.5).toFixed(1);
+                    tech.arrivalTime = Math.floor(tech.distance * 8 + Math.random() * 20);
+                });
+                
+                document.getElementById('sortBy').value = 'distance';
+                sortTechnicians();
+                showNotification('Updated with technicians closest to you!', 'success');
+            }, 2000);
+        }
+
+        // Request specific technician
+        function requestTechnician(technicianName, technicianId) {
+            const tech = techniciansData.find(t => t.id === technicianId);
+            
+            if (tech.availability === 'available') {
+                showNotification(`Request sent to ${technicianName}! They will call you within 5 minutes.`, 'success');
+                
+                // Simulate technician becoming busy
+                setTimeout(() => {
+                    tech.availability = 'later';
+                    renderTechnicians();
+                }, 3000);
+            } else {
+                showNotification(`${technicianName} is currently busy. Try booking for later or choose another technician.`, 'error');
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Handle emergency form submission
+        document.getElementById('emergencyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('emergencyName').value;
+            const phone = document.getElementById('emergencyPhone').value;
+            const address = document.getElementById('emergencyAddress').value;
+            const emergencyType = document.getElementById('emergencyType').value;
+            const description = document.getElementById('emergencyDescription').value;
+
+            // Simulate form submission
+            showNotification('Emergency request submitted! Our technician will arrive within 30 minutes.', 'success');
+            closeModal('emergencyModal');
+            
+            // Clear form
+            this.reset();
+            
+            // Simulate emergency technician dispatch
+            setTimeout(() => {
+                showNotification('Emergency technician Raj Kumar is on the way! ETA: 25 minutes', 'info');
+            }, 2000);
+        });
+
+        // Handle service form submission
+        document.getElementById('serviceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('serviceName').value;
+            const phone = document.getElementById('servicePhone').value;
+            const address = document.getElementById('serviceAddress').value;
+            const date = document.getElementById('serviceDate').value;
+            const time = document.getElementById('serviceTime').value;
+            const description = document.getElementById('serviceDescription').value;
+
+            // Simulate booking confirmation
+            const bookingId = 'HH' + Math.floor(Math.random() * 100000);
+            showNotification(`Service booked successfully! Booking ID: ${bookingId}`, 'success');
+            closeModal('serviceModal');
+            
+            // Clear form
+            this.reset();
+            
+            // Generate receipt
+            setTimeout(() => {
+                generateReceipt(bookingId, name, date, time);
+            }, 1000);
+        });
+
+        // Generate service receipt
+        function generateReceipt(bookingId, customerName, date, time) {
+            const receiptData = {
+                bookingId: bookingId,
+                customerName: customerName,
+                serviceDate: date,
+                serviceTime: time,
+                serviceFee: Math.floor(Math.random() * 300 + 200),
+                bookingDate: new Date().toLocaleDateString(),
+                status: 'Confirmed'
+            };
+
+            // Create downloadable receipt
+            const receiptContent = `
+                HomeHelp Service Receipt
+                ========================
+                
+                Booking ID: ${receiptData.bookingId}
+                Customer: ${receiptData.customerName}
+                Service Date: ${receiptData.serviceDate}
+                Service Time: ${receiptData.serviceTime}
+                Service Fee: ₹${receiptData.serviceFee}
+                Booking Date: ${receiptData.bookingDate}
+                Status: ${receiptData.status}
+                
+                Thank you for choosing HomeHelp!
+                For support: +91 9876543210
+            `;
+
+            // Create and download receipt
+            const blob = new Blob([receiptContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `HomeHelp_Receipt_${bookingId}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            showNotification('Receipt downloaded! Check your downloads folder.', 'success');
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            const emergencyModal = document.getElementById('emergencyModal');
+            const serviceModal = document.getElementById('serviceModal');
+            
+            if (event.target === emergencyModal) {
+                closeModal('emergencyModal');
+            }
+            if (event.target === serviceModal) {
+                closeModal('serviceModal');
+            }
+        });
+
+        // Search functionality (bonus feature)
+        function searchTechnicians(query) {
+            if (!query) {
+                filteredTechnicians = [...techniciansData];
+            } else {
+                filteredTechnicians = techniciansData.filter(tech => 
+                    tech.name.toLowerCase().includes(query.toLowerCase()) ||
+                    tech.speciality.toLowerCase().includes(query.toLowerCase()) ||
+                    tech.services.some(service => service.toLowerCase().includes(query.toLowerCase()))
+                );
+            }
+            renderTechnicians();
+        }
+
+        // Add search input dynamically
+        const locationHeader = document.querySelector('.location-header');
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.placeholder = 'Search technicians...';
+        searchInput.style.padding = '10px';
+        searchInput.style.border = '2px solid #e2e8f0';
+        searchInput.style.borderRadius = '25px';
+        searchInput.style.fontSize = '14px';
+        searchInput.style.width = '200px';
+
+        searchInput.addEventListener('input', function(e) {
+            searchTechnicians(e.target.value);
+        });
+
+        locationHeader.appendChild(searchInput);
+
+        // Simulate real-time updates
+        function simulateRealTimeUpdates() {
+            setInterval(() => {
+                // Randomly update some technician distances (simulate movement)
+                const randomTech = techniciansData[Math.floor(Math.random() * techniciansData.length)];
+                const oldDistance = randomTech.distance;
+                randomTech.distance = +(Math.random() * 5 + 0.5).toFixed(1);
+                randomTech.arrivalTime = Math.floor(randomTech.distance * 8 + Math.random() * 20);
+                
+                if (Math.abs(oldDistance - randomTech.distance) > 1) {
+                    renderTechnicians();
+                }
+            }, 15000);
+        }
+
+        // Start real-time updates
+        simulateRealTimeUpdates();
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes modals
+            if (e.key === 'Escape') {
+                closeModal('emergencyModal');
+                closeModal('serviceModal');
+            }
+            
+            // Ctrl + E opens emergency modal
+            if (e.ctrlKey && e.key === 'e') {
+                e.preventDefault();
+                openEmergencyModal();
+            }
+        });
+
+        // Add service worker for offline functionality (basic)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration failed');
+                });
+            });
+        }
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+                
+                if (loadTime > 3000) {
+                    showNotification('Slow connection detected. Some features may be delayed.', 'info');
+                }
+            }, 0);
+        });
+    </script>
+</body>
+</html>
